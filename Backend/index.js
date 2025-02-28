@@ -48,7 +48,7 @@ app.get('/api/products', (req, res)=>{
     // to entertain query parameter
     if(req.query.search){
         const filterProducts = products.filter(product => product.name.includes(req.query.search))
-        // this will check if the name includes that specific searched word, if yes then return all entities
+        // this will check if the name includes that specific searched word, if yes then return all entities by searching {http://localhost:3000/api/products?search=g}
         res.send(filterProducts);
         return;
     }
@@ -62,6 +62,6 @@ app.get('/api/products', (req, res)=>{
 const port = process.env.PORT || 3000;
 
 app.listen(port, ()=>{
-    console.log(`Server running on ${port}`);
+    console.log(`http://localhost:${port}/api/products`);
 });
 

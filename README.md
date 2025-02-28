@@ -19,7 +19,7 @@ This project is a demonstration of my expertise in building **full-stack applica
 ### 📥 Clone the Repository
 ```sh
 git clone https://github.com/iAmUsmanAwan/your-repo-name.git
-cd your-repo-name
+cd apiHandling
 ```
 
 ### 🔧 Backend Setup

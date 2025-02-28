@@ -18,8 +18,8 @@ This project is a demonstration of my expertise in building **full-stack applica
 ## 🏁 Getting Started
 ### 📥 Clone the Repository
 ```sh
-git clone https://github.com/iAmUsmanAwan/your-repo-name.git
-cd apiHandling
+git clone https://github.com/iAmUsmanAwan/API_Handling.git
+cd API_Handling
 ```
 
 ### 🔧 Backend Setup

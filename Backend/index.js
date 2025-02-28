@@ -46,12 +46,25 @@ app.get('/api/products', (req, res)=>{
     //* here "?" is known as query parameter.
 
     // to entertain query parameter
-    if(req.query.search){
-        const filterProducts = products.filter(product => product.name.includes(req.query.search))
-        // this will check if the name includes that specific searched word, if yes then return all entities by searching {http://localhost:3000/api/products?search=g}
+    // if(req.query.search){
+    //     const filterProducts = products.filter(product => product.name.includes(req.query.search) || product.name.toLowerCase().startsWith(req.query.search.toLowerCase()));
+    //     // this will check if the name includes that specific searched word, if yes then return all entities by searching {http://localhost:3000/api/products?search=g}
+    //     res.send(filterProducts);
+    //     return;
+    // }
+
+    // to entertain query parameter other way
+    if (req.query.search) {
+        const searchTerm = req.query.search.toLowerCase();
+        const filterProducts = products.filter(product => 
+            product.name.toLowerCase().startsWith(searchTerm) || 
+            product.name.toLowerCase().includes(searchTerm)
+        );
         res.send(filterProducts);
         return;
     }
+    
+
 
     setTimeout(()=>{
         res.send(products);

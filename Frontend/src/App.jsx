@@ -66,17 +66,54 @@ const [search, setSearch] = useState('')   // for the search input field, settin
 
   return (
     <>
-      <h1>HELLO PEEPS</h1>
+      <h1>🛍️ Product Store</h1>
 
-      <input type="text" placeholder='Search'
-      value={search}
-      onChange={(e)=> setSearch(e.target.value)}
-      />
+      <input 
+      type="text" 
+      placeholder="🔍 Search for products..." 
+      value={search} 
+      onChange={(e) => setSearch(e.target.value)} 
+      style={{
+        padding: '10px',
+        marginBottom: '20px',
+        width: '100%',
+        maxWidth: '400px',
+        borderRadius: '8px',
+        border: '1px solid #ccc',
+        fontSize: '16px'
+      }}
+    />
 
-    {loading && (<h1>Loading please wait 🙂 ↕ </h1>)}
-    {error && (<h1>Something went Wrong 🙁 ��</h1>)}
+    {loading && (<h1>⏳ Loading please wait 🙂 ↕ </h1>)}
+    {error && (<h1>❌ Something went Wrong 🙁 ��</h1>)}
 
-      <h2>Number of Products are {products.length}</h2>
+      <h2>🛒 {products.length} Products Found</h2>
+
+      <div style={{
+      display: 'grid', 
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+      gap: '20px', 
+      padding: '20px'
+    }}>
+      {products.map((product) => (
+        <div key={product.id} style={{
+          border: '1px solid #ddd', 
+          borderRadius: '10px', 
+          padding: '15px', 
+          textAlign: 'center', 
+          boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.1)'
+        }}>
+          <img 
+            src={product.image} 
+            alt={product.name} 
+            style={{ width: '100%', height: '150px', objectFit: 'cover', borderRadius: '8px' }}
+          />
+          <h3>{product.name}</h3>
+          <p>💰 Price: ${product.price}</p>
+        </div>
+      ))}
+    </div>
+
     </>
   )
 }
